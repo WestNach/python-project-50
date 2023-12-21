@@ -6,3 +6,4 @@ dist/
 .coverage
 coverage.xml
 .pytest_cache/
+python-project-50.code-workspace

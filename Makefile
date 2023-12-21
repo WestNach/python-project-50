@@ -28,3 +28,6 @@ build: check
 	poetry build
 
 .PHONY: install test lint selfcheck check build
+
+gendiff-help:
+	poetry run gendiff --h
