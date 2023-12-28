@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import argparse
+from gendiff import generate_diff
 
-def generate_diff(first_file, second_file, format):
-    # Здесь будет ваша логика сравнения файлов
-    pass
 
 def main():
     # Создаем парсер аргументов командной строки
@@ -12,15 +10,11 @@ def main():
     # Определение позиционных аргументов
     parser.add_argument('first_file', help='first configuration file')
     parser.add_argument('second_file', help='second configuration file')
-
-    # Определение опционального аргумента --format
-    parser.add_argument('-f', '--format', help='set format of output')
-
-    # Разбор аргументов командной строки
+    parser.add_argument('-V', '--version', help='output the version number')
+    parser.add_argument('-f', '--format', help='output format (default: "stylish") ')
     args = parser.parse_args()
-
-    # Вызываем функцию для сравнения файлов
-    generate_diff(args.first_file, args.second_file, args.format)
+    diff = generate_diff(args.file_path1, args.file_path2)
+    print(diff)
 
 if __name__ == '__main__':
     main()
