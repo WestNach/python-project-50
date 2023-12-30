@@ -11,6 +11,7 @@ def read_file(filepath):  # load file
     with open(normalize_file_name(filepath)) as file:
         return file.read()
 
+
 @pytest.mark.parametrize(
     "file1, file2, expected_result",
     [
