@@ -26,5 +26,5 @@ def read_file(filepath):  # load file
          read_file('tests/fixtures/flat_result.txt'))
     ]
 )
-def test_gendiff(first_file, second_file, expected_result):
+def test_gendiff(first_file, second_file, expected_result: str):
     assert generate_diff(first_file, second_file) == expected_result
