@@ -16,12 +16,12 @@ def read_file(filepath):  # load file
 @pytest.mark.parametrize(
     "file1, file2, expected_result",
     [
-        (('tests/fixtures/files/file1.json'),
-         ('tests/fixtures/files/file2.json'),
+        (('tests/fixtures/file1.json'),
+         ('tests/fixtures/file2.json'),
          read_file('tests/fixtures/flat_result.txt')),
-        (yaml.load(open('tests/fixtures/files/file1.yaml'),
+        (yaml.load(open('tests/fixtures/file1.yaml'),
          Loader=yaml.FullLoader),
-         yaml.load(open('tests/fixtures/files/file2.yaml'),
+         yaml.load(open('tests/fixtures/file2.yaml'),
          Loader=yaml.FullLoader),
          read_file('tests/fixtures/flat_result.txt'))
     ]
