@@ -1,6 +1,7 @@
 import pytest
 from gendiff.generate_diff import generate_diff
 import os
+import yaml
 
 
 def normalize_file_name(filepath):
@@ -17,7 +18,12 @@ def read_file(filepath):  # load file
     [
         (('tests/fixtures/files/file1.json'),
          ('tests/fixtures/files/file2.json'),
-         read_file('tests/fixtures/flat_json_result.txt')),
+         read_file('tests/fixtures/flat_result.txt')),
+        (yaml.load(open('tests/fixtures/files/file1.yaml'),
+         Loader=yaml.FullLoader),
+         yaml.load(open('tests/fixtures/files/file2.yaml'),
+         Loader=yaml.FullLoader),
+         read_file('tests/fixtures/flat_result.txt'))
     ]
 )
 def test_gendiff(first_file, second_file, expected_result):
