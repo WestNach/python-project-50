@@ -1,22 +1,15 @@
-import json
-
-
 def generate_diff(first_file, second_file):
-    data1 = json.load(open(first_file))
-    data2 = json.load(open(second_file))
-
     diff = []
-
-    for key in sorted(set(data1.keys()) | set(data2.keys())):
-        if key in data1 and key in data2:
-            if data1[key] == data2[key]:
-                diff.append(f"  {key}: {str(data1[key])}")
+    for key in sorted(set(first_file.keys()) | set(second_file.keys())):
+        if key in first_file and key in second_file:
+            if first_file[key] == second_file[key]:
+                diff.append(f"  {key}: {str(first_file[key])}")
             else:
-                diff.append(f"- {key}: {str(data1[key])}")
-                diff.append(f"+ {key}: {str(data2[key])}")
-        elif key in data1:
-            diff.append(f"- {key}: {str(data1[key])}")
+                diff.append(f"- {key}: {str(first_file[key])}")
+                diff.append(f"+ {key}: {str(second_file[key])}")
+        elif key in first_file:
+            diff.append(f"- {key}: {str(first_file[key])}")
         else:
-            diff.append(f"+ {key}: {str(data2[key])}")
+            diff.append(f"+ {key}: {str(second_file[key])}")
 
     return "{\n" + "\n".join(diff) + "\n}"

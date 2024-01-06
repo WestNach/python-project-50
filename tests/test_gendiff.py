@@ -1,7 +1,6 @@
 import pytest
 from gendiff.generate_diff import generate_diff
 import os
-import yaml
 
 
 def normalize_file_name(filepath):
@@ -16,14 +15,18 @@ def read_file(filepath):  # load file
 @pytest.mark.parametrize(
     "file1, file2, expected_result",
     [
-        (('tests/fixtures/file1.json'),
-         ('tests/fixtures/file2.json'),
-         read_file('tests/fixtures/flat_result.txt')),
-        (yaml.load(open('tests/fixtures/file1.yaml'),
-         Loader=yaml.FullLoader),
-         yaml.load(open('tests/fixtures/file2.yaml'),
-         Loader=yaml.FullLoader),
-         read_file('tests/fixtures/flat_result.txt'))
+        (('tests/fixtures/Flat/file1.json'),
+         ('tests/fixtures/Flat/file2.json'),
+         read_file('tests/fixtures/Flat/flat_result.txt')),
+        (('tests/fixtures/Flat/file1.yaml'),
+         ('tests/fixtures/Flat/file2.yaml'),
+         read_file('tests/fixtures/Flat/flat_result.txt'))
+        (('tests/fixtures/files/nested_file1.json'),
+         ('tests/fixtures/files/nested_file2.json'),
+         read_file('tests/fixtures/Recursive/recursive_result.txt')),
+        (('tests/fixtures/files/nested_file1.yaml'),
+         ('tests/fixtures/files/nested_file2.yaml'),
+         read_file('tests/fixtures/Recursive/recursive_result.txt'))
     ]
 )
 def test_gendiff(first_file, second_file, expected_result: str):
