@@ -1,32 +1,25 @@
 import pytest
 from gendiff.generate_diff import generate_diff
-import os
-
-
-def normalize_file_name(filepath):
-    return filepath.replace('/', os.sep).replace('\\', os.sep)
-
-
-def read_file(filepath):  # load file
-    with open(normalize_file_name(filepath)) as file:
-        return file.read()
-
+from fixtures.Flat import flat_result
+from fixtures.Recursive import recursive_result
+import json
+import yaml
 
 @pytest.mark.parametrize(
     "file1, file2, expected_result",
     [
-        (('tests/fixtures/Flat/file1.json'),
-         ('tests/fixtures/Flat/file2.json'),
-         read_file('tests/fixtures/Flat/flat_result.txt')),
-        (('tests/fixtures/Flat/file1.yaml'),
-         ('tests/fixtures/Flat/file2.yaml'),
-         read_file('tests/fixtures/Flat/flat_result.txt'))
-        (('tests/fixtures/files/nested_file1.json'),
-         ('tests/fixtures/files/nested_file2.json'),
-         read_file('tests/fixtures/Recursive/recursive_result.txt')),
-        (('tests/fixtures/files/nested_file1.yaml'),
-         ('tests/fixtures/files/nested_file2.yaml'),
-         read_file('tests/fixtures/Recursive/recursive_result.txt'))
+        (json.load(open('tests/fixtures/Flat/flat_file1.json')),
+         json.load(open('tests/fixtures/Flat/flat_file2.json')),
+         flat_result),
+        (yaml.load(open('tests/fixtures/Flat/flat_file1.yaml'), Loader=yaml.FullLoader),
+         yaml.load(open('tests/fixtures/Flat/flat_file2.yaml'), Loader=yaml.FullLoader),
+         flat_result)
+        (json.load(open('tests/fixtures/Recursive/file1.json')),
+         json.load(open('tests/fixtures/Recursive/file2.json')),
+         recursive_result),
+        (yaml.load(open('tests/fixtures/Recursive/file1.yaml'), Loader=yaml.FullLoader),
+         yaml.load(open('tests/fixtures/Recursive/file2.yaml'), Loader=yaml.FullLoader),
+         recursive_result)
     ]
 )
 def test_gendiff(first_file, second_file, expected_result: str):
