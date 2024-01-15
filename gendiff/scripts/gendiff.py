@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 from gendiff import generate_diff
-from gendiff import parser
+import argparse
 
 
 def main():
-    first_file, second_file = parser.pareser_data()
-    different = generate_diff.generate_diff(first_file, second_file)
-    return print(different)
+    parser = argparse.ArgumentParser(
+        description='Generate difference between two files')
+    parser.add_argument('filepath1', help='path to the first file')
+    parser.add_argument('filepath2', help='path to the second file')
+    parser.add_argument('-f', '--format', choices=['plain', 'stylish', 'json'],
+                        default='stylish',
+                        help='output format (default: stylish)')
+    args = parser.parse_args()
+
+    diff = generate_diff(args.filepath1, args.filepath2)
+    print(diff)
 
 
 if __name__ == '__main__':
