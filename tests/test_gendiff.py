@@ -12,7 +12,7 @@ from fixtures.Recursive import recursive_result
          flat_result),
         ('tests/fixtures/Flat/flat_file1.yaml',
          'tests/fixtures/Flat/flat_file2.yaml',
-         flat_result)
+         flat_result),
         ('tests/fixtures/Recursive/file1.json',
          'tests/fixtures/Recursive/file2.json',
          recursive_result),
