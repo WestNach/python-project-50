@@ -1,4 +1,4 @@
-nested_dict_result = '''{
+'''{
     common: {
       + follow: false
         setting1: Value 1
@@ -11,7 +11,7 @@ nested_dict_result = '''{
         }
         setting6: {
             doge: {
-              - wow: 
+              - wow:
               + wow: so much
             }
             key: value

@@ -1,7 +1,8 @@
 from gendiff.parser import open_file
+from gendiff.format.formatting import format_diff
 
 
-def generate_diff(first_file, second_file):
+def generate_diff(first_file, second_file, format='stylish'):
     file1 = open_file(first_file)
     file2 = open_file(second_file)
     diff = []
@@ -16,5 +17,5 @@ def generate_diff(first_file, second_file):
             diff.append(f"- {key}: {str(file1[key])}")
         else:
             diff.append(f"+ {key}: {str(file2[key])}")
-
-    return "{\n" + "\n".join(diff) + "\n}"
+    result = format_diff(diff, format)
+    return result

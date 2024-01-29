@@ -1,0 +1,98 @@
+"""{
+    "common": {
+        "change": "node",
+        "children": {
+            "follow": {
+                "change": "added",
+                "value": false
+            },
+            "setting1": {
+                "change": "unchanged",
+                "value": "Value 1"
+            },
+            "setting2": {
+                "change": "deleted",
+                "value": 200
+            },
+            "setting3": {
+                "change": "updated",
+                "old_value": true,
+                "new_value": null
+            },
+            "setting4": {
+                "change": "added",
+                "value": "blah blah"
+            },
+            "setting5": {
+                "change": "added",
+                "value": {
+                    "key5": "value5"
+                }
+            },
+            "setting6": {
+                "change": "node",
+                "children": {
+                    "doge": {
+                        "change": "node",
+                        "children": {
+                            "wow": {
+                                "change": "updated",
+                                "old_value": "",
+                                "new_value": "so much"
+                            }
+                        }
+                    },
+                    "key": {
+                        "change": "unchanged",
+                        "value": "value"
+                    },
+                    "ops": {
+                        "change": "added",
+                        "value": "vops"
+                    }
+                }
+            }
+        }
+    },
+    "group1": {
+        "change": "node",
+        "children": {
+            "baz": {
+                "change": "updated",
+                "old_value": "bas",
+                "new_value": "bars"
+            },
+            "foo": {
+                "change": "unchanged",
+                "value": "bar"
+            },
+            "nest": {
+                "change": "updated",
+                "old_value": {
+                    "key": "value"
+                },
+                "new_value": "str"
+            }
+        }
+    },
+    "group2": {
+        "change": "deleted",
+        "value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        }
+    },
+    "group3": {
+        "change": "added",
+        "value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        }
+    }
+}"""
