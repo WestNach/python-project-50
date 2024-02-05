@@ -1,11 +1,11 @@
-from gendiff.format.json import get_json_dict
-from gendiff.format.plain import get_plain_dict
-from gendiff.format.stylish import stylize
+from json import get_json_dict
+from plain import get_plain_dict
+import stylish
 
 
 def format_diff(difference, format='stylish'):
     if format == 'stylish':
-        formatted_diff = stylize(difference)
+        formatted_diff = stylish.stylize(difference)
         return formatted_diff
     elif format == 'plain':
         formatted_diff = get_plain_dict(difference)
