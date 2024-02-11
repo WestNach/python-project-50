@@ -22,7 +22,10 @@ def open_txt(path_to_file):
          'tests/fixtures/plain/plain_result.txt', "plain"),
         ('tests/fixtures/files/file1.yaml',
          'tests/fixtures/files/file2.yaml',
-         'tests/fixtures/plain/plain_result.txt', "plain")
+         'tests/fixtures/json/json.txt', "json")
+        ('tests/fixtures/files/file1.yaml',
+         'tests/fixtures/files/file2.yaml',
+         'tests/fixtures/json/json.txt', "json")
     ]
 )
 def test_gendiff(first_file, second_file, expected_data, format):
