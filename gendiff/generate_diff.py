@@ -1,12 +1,9 @@
 from gendiff.parser import open_file
-from gendiff.format.formatting import format_diff
+from gendiff.formats.formatting import format_diff
 
 
 def get_unique_sorted_keys_list(dict1, dict2):
-    unique_keys = set(dict1.keys() | dict2.keys())
-    keys_list = list(unique_keys)
-    keys_list.sort()
-
+    keys_list = sorted(set(dict1) | set(dict2))
     return keys_list
 
 
@@ -60,9 +57,21 @@ def get_diff(data1, data2):
     return diff
 
 
-def generate_diff(first_file, second_file, format='stylish'):
-    file1 = open_file(first_file)
-    file2 = open_file(second_file)
+def get_file_extension(file_path):
+    file_extension = file_path[file_path.rfind('.') + 1:]
+    return file_extension
+
+
+def get_file_data(file_path):
+    file_extension = get_file_extension(file_path)
+    with open(file_path, 'r') as file:
+        file_data = open_file(file, file_extension)
+    return file_data
+
+
+def generate_diff(first_file, second_file, output_format='stylish'):
+    file1 = get_file_data(first_file)
+    file2 = get_file_data(second_file)
     diff = get_diff(file1, file2)
-    result_differance = format_diff(diff, format)
+    result_differance = format_diff(diff, output_format)
     return result_differance
