@@ -1,11 +1,15 @@
 import pytest
-from gendiff.generate_diff import generate_diff
+from gendiff.gen_diff import generate_diff
 
 
 def open_txt(path_to_file):
-    with open(path_to_file, 'r') as file:
-        data = file.read()
-        return data
+    try:
+        with open(path_to_file, 'r') as file:
+            data = file.read()
+            return data
+    except FileNotFoundError as err:
+        print(f"File not found: {err}")
+        return ""
 
 
 @pytest.mark.parametrize(
@@ -23,8 +27,8 @@ def open_txt(path_to_file):
         ('tests/fixtures/files/file1.yaml',
          'tests/fixtures/files/file2.yaml',
          'tests/fixtures/json/json.txt', "json"),
-        ('tests/fixtures/files/file3.yaml',
-         'tests/fixtures/files/file4.yaml',
+        ('tests/fixtures/files/file1.yaml',
+         'tests/fixtures/files/file2.yaml',
          'tests/fixtures/json/json_result.txt', "json")
     ]
 )

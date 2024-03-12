@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from gendiff.generate_diff import generate_diff
+from gendiff.gen_diff import generate_diff
 import argparse
 
 
@@ -13,7 +13,7 @@ def main():
                         help='output format (default: stylish)')
     args = parser.parse_args()
 
-    diff = generate_diff(args.filepath1, args.filepath2, args.fromat)
+    diff = generate_diff(args.filepath1, args.filepath2, str(args.format))
     print(diff)
 
 
