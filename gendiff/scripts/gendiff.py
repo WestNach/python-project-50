@@ -13,7 +13,7 @@ def main():
                         help='output format (default: stylish)')
     args = parser.parse_args()
 
-    diff = generate_diff(args.filepath1, args.filepath2, str(args.format))
+    diff = generate_diff(args.filepath1, args.filepath2, args.format)
     print(diff)
 
 

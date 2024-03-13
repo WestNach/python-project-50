@@ -1,53 +1,65 @@
 {
     "common": {
-        "change": "node",
-        "children": {
+        "key": "common",
+        "operation": "nested",
+        "value": {
             "follow": {
-                "change": "added",
+                "key": "follow",
+                "operation": "added",
                 "value": false
             },
             "setting1": {
-                "change": "unchanged",
+                "key": "setting1",
+                "operation": "unchanged",
                 "value": "Value 1"
             },
             "setting2": {
-                "change": "deleted",
+                "key": "setting2",
+                "operation": "removed",
                 "value": 200
             },
             "setting3": {
-                "change": "updated",
-                "old_value": true,
-                "new_value": null
+                "key": "setting3",
+                "operation": "changed",
+                "old": true,
+                "new": null
             },
             "setting4": {
-                "change": "added",
+                "key": "setting4",
+                "operation": "added",
                 "value": "blah blah"
             },
             "setting5": {
-                "change": "added",
+                "key": "setting5",
+                "operation": "added",
                 "value": {
                     "key5": "value5"
                 }
             },
             "setting6": {
-                "change": "node",
-                "children": {
+                "key": "setting6",
+                "operation": "nested",
+                "value": {
                     "doge": {
-                        "change": "node",
-                        "children": {
+                        "key": "doge",
+                        "operation": "nested",
+                        "value": {
                             "wow": {
-                                "change": "updated",
-                                "old_value": "",
-                                "new_value": "so much"
+                                "key": "wow",
+                                "operation": "changed",
+                                "old": "",
+                                "new": "so much"
                             }
                         }
                     },
                     "key": {
-                        "change": "unchanged",
+                        "key": "key",
+                        "operation": "unchanged",
                         "value": "value"
                     },
                     "ops": {
-                        "change": "added",
+                        "key": "ops",
+                        "operation": "added",
                         "value": "vops"
                     }
                 }
@@ -55,28 +67,33 @@
         }
     },
     "group1": {
-        "change": "node",
-        "children": {
+        "key": "group1",
+        "operation": "nested",
+        "value": {
             "baz": {
-                "change": "updated",
-                "old_value": "bas",
-                "new_value": "bars"
+                "key": "baz",
+                "operation": "changed",
+                "old": "bas",
+                "new": "bars"
             },
             "foo": {
-                "change": "unchanged",
+                "key": "foo",
+                "operation": "unchanged",
                 "value": "bar"
             },
             "nest": {
-                "change": "updated",
-                "old_value": {
+                "key": "nest",
+                "operation": "changed",
+                "old": {
                     "key": "value"
                 },
-                "new_value": "str"
+                "new": "str"
             }
         }
     },
     "group2": {
-        "change": "deleted",
+        "key": "group2",
+        "operation": "removed",
         "value": {
             "abc": 12345,
             "deep": {
@@ -85,7 +102,8 @@
         }
     },
     "group3": {
-        "change": "added",
+        "key": "group3",
+        "operation": "added",
         "value": {
             "deep": {
                 "id": {
