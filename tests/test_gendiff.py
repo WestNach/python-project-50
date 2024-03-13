@@ -4,8 +4,8 @@ from gendiff.gen_diff import generate_diff
 
 def open_txt(path_to_file):
     try:
-        with open(path_to_file, 'r') as file:
-            data = file.read()
+        with open(path_to_file, 'r') as result:
+            data = result.read()
             return data
     except FileNotFoundError as err:
         print(f"File not found: {err}")
