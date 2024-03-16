@@ -1,6 +1,6 @@
 from gendiff.parser import open_file
 from gendiff.formats.formatting import format_diff
-from .diff import get_diff
+from gendiff.diff import get_diff
 
 
 def get_file_data(file_path):
