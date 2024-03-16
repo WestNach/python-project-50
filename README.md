@@ -51,15 +51,15 @@ $ python3 -m gendiff.scripts.gendiff <file_path1> <file_path2> --format <format>
 
 Comparison of two files in the JSON format:
 
-[![asciicast](https://asciinema.org/a/ejkADXLd9g2msAOn69mFGF4QA.svg)](https://asciinema.org/a/j8L3ffQ925i2T0zeS4twAkQ6o)
+[![asciicast]()]()
 
 Comparison of two nested files in the YAML format:
 
-[![asciicast](https://asciinema.org/a/GPsU3IE88CcxFpnzOwH9sSgqN.svg)](https://asciinema.org/a/81A63revGsotXWQp1lYen0O8E)
+[![asciicast]()]()
 
 Comparison of two files in the JSON format with plain output:
 
-[![asciicast](https://asciinema.org/a/HP4Y0O4C2tGsWBXspZRYU5BJK.svg)](https://asciinema.org/a/HP4Y0O4C2tGsWBXspZRYU5BJK)
+[![asciicast]()]()
 
 ### Links
 
