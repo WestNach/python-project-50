@@ -5,6 +5,7 @@ description = ""
 authors = ["skip"]
 packages = [
   { include = "gendiff" },
+  { include = "tests" }
 ]
 readme = "README.md"
 

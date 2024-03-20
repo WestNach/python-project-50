@@ -51,17 +51,18 @@ $ python3 -m gendiff.scripts.gendiff <file_path1> <file_path2> --format <format>
 
 Comparison of two files in the JSON format:
 
-[![asciicast]()]()
+[![asciicast](https://asciinema.org/a/r65nBt03INlUgkCu1OLpKzRNZ.svg)](https://asciinema.org/a/r65nBt03INlUgkCu1OLpKzRNZ)
 
 Comparison of two nested files in the YAML format:
 
-[![asciicast]()]()
+[![asciicast](https://asciinema.org/a/81A63revGsotXWQp1lYen0O8E.svg)](https://asciinema.org/a/81A63revGsotXWQp1lYen0O8E)
 
 Comparison of two files in the JSON format with plain output:
 
-[![asciicast]()]()
+[![asciicast](https://asciinema.org/a/dSBKQUHcgL13JCzhNn54pZidQ.svg)](https://asciinema.org/a/dSBKQUHcgL13JCzhNn54pZidQ)
 
 ### Links
+poetry run gendiff -f json tests/fixtures/files/file1.json tests/fixtures/files/file2.json
 
 This project was built using these tools:
 
