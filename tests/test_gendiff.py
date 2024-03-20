@@ -1,5 +1,5 @@
 import pytest
-from gendiff import generate_diff
+from gendiff.scripts.gendiff import generate_diff
 
 
 def open_txt(path_to_file):
@@ -37,5 +37,5 @@ def open_txt(path_to_file):
 )
 def test_gendiff(file1, file2, expected_data, format):
     expected_result = open_txt(expected_data)
-    generated_diff = generate_diff.generate_diff(file1, file2, format)
+    generated_diff = generate_diff(file1, file2, format)
     assert generated_diff == expected_result
