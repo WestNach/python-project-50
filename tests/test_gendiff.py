@@ -1,5 +1,5 @@
 import pytest
-from gendiff.scripts.gendiff import generate_diff
+from gendiff import generate_diff
 
 
 def open_txt(path_to_file):
