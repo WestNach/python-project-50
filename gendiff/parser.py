@@ -1,16 +1,24 @@
-import yaml
-import json
-import os
+import argparse
 
 
-def open_file(file_path):
-    name_of_file, file_extension = (os.path.splitext(file_path))
-    if file_extension == ".json":
-        with open(file_path) as f:
-            file = json.load(f)
-    elif file_extension == ".yaml" or file_extension == ".yml":
-        with open(file_path) as f:
-            file = yaml.load(f, Loader=yaml.FullLoader)
-    else:
-        raise ValueError(f'Unsupported file format: {file_extension}')
-    return file
+# Function to parse command line arguments
+def parse():
+    # Create an ArgumentParser object
+    parser = argparse.ArgumentParser(
+        # Provide a description of the script
+        description='Generate difference between two files')
+
+    # Add arguments to the parser
+    parser.add_argument('path1', help='path to the first file')
+    parser.add_argument('path2', help='path to the second file')
+
+    # Add optional argument with format choices
+    parser.add_argument('-f', '--format', choices=['plain', 'stylish', 'json'],
+                        # Set the default format as 'stylish'
+                        default='stylish',
+                        # Provide a help message for the --format argument
+                        help='output format (default: stylish)')
+
+    # Parse the arguments and return them as an object
+    args = parser.parse_args()
+    return args
